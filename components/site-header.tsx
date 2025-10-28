@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { Menu, X, User, LogOut, Shield } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@/lib/contexts/auth-context"
+import { ThemeToggle } from "@/components/theme-toggle"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,12 +32,12 @@ export function SiteHeader() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 dark:bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-900/80 shadow-sm transition-colors">
       <nav className="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex flex-col">
-            <span className="text-xl font-heading font-bold text-[#2D5F4F]">Ìbáṣepọ̀</span>
-            <span className="text-sm text-[#2A7F7F]">Connected Hearts</span>
+            <span className="text-xl font-heading font-bold text-[#2D5F4F] dark:text-[#A8D5BA]">Ìbáṣepọ̀</span>
+            <span className="text-sm text-[#2A7F7F] dark:text-[#2A7F7F]">Connected Hearts</span>
           </div>
         </Link>
 
@@ -48,10 +49,10 @@ export function SiteHeader() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors hover:text-[#2A7F7F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2A7F7F] focus-visible:ring-offset-2 rounded-sm px-2 py-1 ${
+                className={`text-sm font-medium transition-colors hover:text-[#2A7F7F] dark:hover:text-[#A8D5BA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2A7F7F] focus-visible:ring-offset-2 rounded-sm px-2 py-1 ${
                   isActive
-                    ? "text-[#2A7F7F] font-semibold border-b-2 border-[#2A7F7F]"
-                    : "text-[#2C3E50]"
+                    ? "text-[#2A7F7F] dark:text-[#A8D5BA] font-semibold border-b-2 border-[#2A7F7F] dark:border-[#A8D5BA]"
+                    : "text-[#2C3E50] dark:text-gray-300"
                 }`}
               >
                 {item.name}
@@ -61,6 +62,8 @@ export function SiteHeader() {
           <Button asChild className="bg-[#2A7F7F] hover:bg-[#2D5F4F] text-white">
             <Link href="/booking">Book a Session</Link>
           </Button>
+
+          <ThemeToggle />
 
           {isAuthenticated ? (
             <DropdownMenu>

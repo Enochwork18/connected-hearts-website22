@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star, ArrowRight } from "@/components/icons"
 import NewsletterForm from "@/components/newsletter-form"
 import { useMotionPreference } from "@/hooks/use-motion-preference"
+import { useTypewriter } from "@/hooks/use-typewriter"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 
@@ -19,6 +20,7 @@ interface AnimatedHomeProps {
 
 export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonials }: AnimatedHomeProps) {
   const { shouldReduceMotion } = useMotionPreference()
+  const heroText = useTypewriter({ text: "Connected Hearts, Healed Lives", speed: 80, delay: 500 })
 
   const MotionDiv = shouldReduceMotion ? "div" : motion.div
   const MotionH1 = shouldReduceMotion ? "h1" : motion.h1
@@ -74,14 +76,17 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="mx-auto max-w-4xl text-center">
             <MotionH1
-              className="mb-6 text-hero font-heading font-bold leading-tight text-balance text-white"
+              className="mb-6 text-hero font-heading font-bold leading-tight text-balance text-white min-h-[1.2em]"
               {...(!shouldReduceMotion && {
                 initial: { opacity: 0, y: 30 },
                 animate: { opacity: 1, y: 0 },
                 transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
               })}
             >
-              Connected Hearts, Healed Lives
+              {heroText}
+              {!shouldReduceMotion && heroText !== "Connected Hearts, Healed Lives" && (
+                <span className="animate-pulse">|</span>
+              )}
             </MotionH1>
             <MotionP
               className="mb-8 text-xl text-white/95 leading-relaxed text-pretty"
@@ -122,7 +127,7 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
       </section>
 
       {/* Services Preview Grid */}
-      <section ref={servicesRef} className="py-16 lg:py-24 bg-white">
+      <section ref={servicesRef} className="py-16 lg:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
           <MotionDiv
             className="mb-12 text-center"
@@ -132,8 +137,8 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
               transition: { duration: 0.6 },
             })}
           >
-            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F]">Our Services</h2>
-            <p className="mx-auto max-w-2xl text-[#2C3E50] leading-relaxed">
+            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#A8D5BA]">Our Services</h2>
+            <p className="mx-auto max-w-2xl text-[#2C3E50] dark:text-gray-300 leading-relaxed">
               Comprehensive support for every stage of your relationship journey
             </p>
           </MotionDiv>
@@ -151,7 +156,7 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
                 key={service.id}
                 {...(!shouldReduceMotion && { variants: itemVariants })}
               >
-                <Card className="group hover:shadow-lg transition-all duration-300 border-[#A8D5BA]/30 hover:-translate-y-2 h-full">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-[#A8D5BA]/30 dark:border-gray-700 hover:-translate-y-2 h-full bg-white dark:bg-gray-800">
                   <CardContent className="p-6">
                     <div className="mb-4 aspect-video relative overflow-hidden rounded-lg bg-[#CFEAFB]/20">
                       <Image
@@ -165,8 +170,8 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
                     <div className="mb-2 inline-block rounded-full bg-[#A8D5BA]/20 px-3 py-1 text-xs font-medium text-[#2A7F7F]">
                       {service.category}
                     </div>
-                    <h3 className="mb-2 text-xl font-heading font-semibold text-[#2D5F4F]">{service.title}</h3>
-                    <p className="mb-4 text-sm text-[#2C3E50] leading-relaxed">{service.excerpt}</p>
+                    <h3 className="mb-2 text-xl font-heading font-semibold text-[#2D5F4F] dark:text-[#A8D5BA]">{service.title}</h3>
+                    <p className="mb-4 text-sm text-[#2C3E50] dark:text-gray-300 leading-relaxed">{service.excerpt}</p>
                     <Button
                       variant="link"
                       asChild
@@ -202,7 +207,7 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
       </section>
 
       {/* About Snippet */}
-      <section ref={aboutRef} className="py-16 lg:py-24 bg-[#F5F3EE] relative">
+      <section ref={aboutRef} className="py-16 lg:py-24 bg-[#F5F3EE] dark:bg-gray-800 relative transition-colors">
         <div className="absolute inset-0 opacity-5 pattern-bg" aria-hidden="true" />
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
@@ -229,13 +234,13 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
                 transition: { duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] },
               })}
             >
-              <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F]">Meet Elizabeth Omolara</h2>
-              <p className="mb-4 text-[#2C3E50] leading-relaxed">
+              <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#A8D5BA]">Meet Elizabeth Omolara</h2>
+              <p className="mb-4 text-[#2C3E50] dark:text-gray-300 leading-relaxed">
                 Welcome to Ìbáṣepọ̀ Connected Hearts. I'm Elizabeth Omolara, and I'm passionate about helping
                 individuals, couples, and families build stronger, more fulfilling relationships rooted in faith and
                 purpose.
               </p>
-              <p className="mb-6 text-[#2C3E50] leading-relaxed">
+              <p className="mb-6 text-[#2C3E50] dark:text-gray-300 leading-relaxed">
                 With years of experience in faith-based coaching and a deep commitment to cultural wisdom, I blend
                 biblical principles with practical strategies to guide you toward peace, purpose, and lasting
                 transformation.

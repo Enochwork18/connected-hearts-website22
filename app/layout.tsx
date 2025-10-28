@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Montserrat, Lato } from "next/font/google"
 import "./globals.css"
 import { AuthProvider } from "@/lib/contexts/auth-context"
+import { ThemeProvider } from "@/lib/contexts/theme-context"
 import { PageTransition } from "@/components/page-transition"
 import { ConditionalLayout } from "@/components/conditional-layout"
 
@@ -71,15 +72,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${montserrat.variable} ${lato.variable}`}>
-        <AuthProvider>
-          <PageTransition>
-            <ConditionalLayout>
-              {children}
-            </ConditionalLayout>
-          </PageTransition>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <PageTransition>
+              <ConditionalLayout>
+                {children}
+              </ConditionalLayout>
+            </PageTransition>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

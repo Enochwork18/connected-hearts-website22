@@ -11,11 +11,12 @@ interface ConditionalLayoutProps {
 export function ConditionalLayout({ children }: ConditionalLayoutProps) {
   const pathname = usePathname()
 
-  // Check if we're on a dashboard or admin page
+  // Check if we're on a dashboard, admin, or auth page
   const isDashboard = pathname?.startsWith("/dashboard") || pathname?.startsWith("/admin")
+  const isAuthPage = pathname === "/login" || pathname === "/signup" || pathname === "/forgot-password" || pathname === "/admin/login"
 
-  if (isDashboard) {
-    // Don't show header/footer on dashboard pages - they have their own layout
+  if (isDashboard || isAuthPage) {
+    // Don't show header/footer on dashboard or auth pages - they have their own minimal layout
     return <>{children}</>
   }
 
