@@ -609,6 +609,37 @@ export const userAPI = {
 
     return headers + rows
   },
+
+  // Update user profile
+  // TODO: PATCH /api/users/profile
+  updateProfile: async (userId: string, data: { name?: string; phone?: string; photo?: string }): Promise<User> => {
+    await mockDelay()
+
+    const user = mockUsers.find((u) => u.id === userId)
+    if (!user) throw new Error("User not found")
+
+    if (data.name) user.name = data.name
+    if (data.phone !== undefined) user.phone = data.phone
+    // Note: photo would be added to User type when backend is ready
+
+    return user
+  },
+
+  // Change password
+  // TODO: POST /api/users/change-password
+  changePassword: async (userId: string, oldPassword: string, newPassword: string): Promise<{ success: boolean }> => {
+    await mockDelay()
+
+    const user = mockUsers.find((u) => u.id === userId)
+    if (!user) throw new Error("User not found")
+
+    // Mock validation (in real app, verify old password)
+    if (oldPassword.length < 6 || newPassword.length < 6) {
+      throw new Error("Password must be at least 6 characters")
+    }
+
+    return { success: true }
+  },
 }
 
 // ============================================
@@ -875,6 +906,41 @@ export const contactAPI = {
 }
 
 // ============================================
+// ADMIN STATISTICS API
+// ============================================
+
+export const adminStatsAPI = {
+  // Get dashboard statistics
+  // TODO: GET /api/admin/stats
+  getStats: async (): Promise<{
+    totalUsers: number
+    totalBookings: number
+    totalRevenue: number
+    pendingTestimonials: number
+    activeSubscribers: number
+    recentBookings: Booking[]
+    recentContacts: ContactMessage[]
+  }> => {
+    await mockDelay()
+
+    const recentBookings = mockBookings.slice(-5).reverse()
+    const recentContacts = mockContactMessages.filter((m) => m.status === "new").slice(-5).reverse()
+
+    return {
+      totalUsers: mockUsers.filter((u) => u.role === "user").length,
+      totalBookings: mockBookings.length,
+      totalRevenue: mockBookings
+        .filter((b) => b.paymentStatus === "paid")
+        .reduce((sum, b) => sum + b.amount, 0),
+      pendingTestimonials: mockTestimonials.filter((t) => t.status === "pending").length,
+      activeSubscribers: mockSubscribers.filter((s) => s.isActive).length,
+      recentBookings,
+      recentContacts,
+    }
+  },
+}
+
+// ============================================
 // MAIN API SERVICE EXPORT
 // ============================================
 
@@ -890,6 +956,7 @@ export const apiService = {
   services: servicesAPI,
   gallery: galleryAPI,
   categories: categoriesAPI,
+  adminStats: adminStatsAPI,
 }
 
 // Default export for convenience

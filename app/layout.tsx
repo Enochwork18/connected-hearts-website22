@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Montserrat, Lato } from "next/font/google"
 import "./globals.css"
-import { SiteHeader } from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
 import { AuthProvider } from "@/lib/contexts/auth-context"
+import { PageTransition } from "@/components/page-transition"
+import { ConditionalLayout } from "@/components/conditional-layout"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -74,9 +74,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.variable} ${lato.variable}`}>
         <AuthProvider>
-          <SiteHeader />
-          {children}
-          <SiteFooter />
+          <PageTransition>
+            <ConditionalLayout>
+              {children}
+            </ConditionalLayout>
+          </PageTransition>
         </AuthProvider>
       </body>
     </html>
