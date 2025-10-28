@@ -72,7 +72,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founder Section with Photo */}
-      <section className="py-16 lg:py-24 bg-white relative">
+      <section className="py-16 lg:py-24 bg-white dark:bg-gray-900 transition-colors relative">
         <div className="absolute inset-0 opacity-5 pattern-bg" />
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="grid gap-12 lg:grid-cols-2 items-center max-w-6xl mx-auto">
@@ -86,9 +86,9 @@ export default function AboutPage() {
               />
             </div>
             <div>
-              <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F]">Meet Elizabeth Omolara</h2>
-              <p className="mb-6 text-lg font-medium text-[#2A7F7F]">Founder & Lead Coach</p>
-              <div className="space-y-4 text-[#2C3E50] leading-relaxed">
+              <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">Meet Elizabeth Omolara</h2>
+              <p className="mb-6 text-lg font-medium text-[#2A7F7F] dark:text-[#8CC9A8]">Founder & Lead Coach</p>
+              <div className="space-y-4 text-[#2C3E50] dark:text-gray-300 leading-relaxed">
                 <p>
                   Welcome to Ìbáṣepọ̀ Connected Hearts. I'm Elizabeth Omolara, and I'm passionate about helping
                   individuals, couples, and families build stronger, more fulfilling relationships rooted in faith and
@@ -117,12 +117,12 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Statement */}
-      <section className="py-16 lg:py-24 bg-[#F5F3EE]">
+      <section className="py-16 lg:py-24 bg-[#F5F3EE] dark:bg-gray-800 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
-          <Card className="max-w-4xl mx-auto border-[#A8D5BA]/30 bg-white">
+          <Card className="max-w-4xl mx-auto border-[#A8D5BA]/30 dark:border-gray-700 bg-white dark:bg-gray-800">
             <CardContent className="p-8 lg:p-12 text-center">
-              <h2 className="mb-6 text-h2 font-heading font-bold text-[#2D5F4F]">Our Mission</h2>
-              <p className="text-xl text-[#2C3E50] leading-relaxed">
+              <h2 className="mb-6 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">Our Mission</h2>
+              <p className="text-xl text-[#2C3E50] dark:text-gray-300 leading-relaxed">
                 To guide families toward peace, purpose, and legacy through faith-based coaching that blends cultural
                 wisdom with practical strategies for individuals, couples, and families.
               </p>
@@ -132,11 +132,11 @@ export default function AboutPage() {
       </section>
 
       {/* Values Grid */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F]">Our Core Values</h2>
-            <p className="mx-auto max-w-2xl text-[#2C3E50] leading-relaxed">
+            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">Our Core Values</h2>
+            <p className="mx-auto max-w-2xl text-[#2C3E50] dark:text-gray-300 leading-relaxed">
               These principles guide everything we do at Connected Hearts.
             </p>
           </div>
@@ -145,13 +145,13 @@ export default function AboutPage() {
             {values.map((value, index) => {
               const Icon = value.icon
               return (
-                <Card key={index} className="border-[#A8D5BA]/30 hover:shadow-lg transition-shadow">
+                <Card key={index} className="border-[#A8D5BA]/30 dark:border-gray-700 hover:shadow-lg transition-shadow bg-white dark:bg-gray-800">
                   <CardContent className="p-6">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20">
-                      <Icon className="h-6 w-6 text-[#2A7F7F]" />
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20 dark:bg-[#8CC9A8]/20">
+                      <Icon className="h-6 w-6 text-[#2A7F7F] dark:text-[#8CC9A8]" />
                     </div>
-                    <h3 className="mb-3 text-xl font-heading font-semibold text-[#2D5F4F]">{value.title}</h3>
-                    <p className="text-sm text-[#2C3E50] leading-relaxed">{value.description}</p>
+                    <h3 className="mb-3 text-xl font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">{value.title}</h3>
+                    <p className="text-sm text-[#2C3E50] dark:text-gray-300 leading-relaxed">{value.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -161,15 +161,15 @@ export default function AboutPage() {
       </section>
 
       {/* Credentials Section */}
-      <section className="py-16 lg:py-24 bg-[#F5F3EE]">
+      <section className="py-16 lg:py-24 bg-[#F5F3EE] dark:bg-gray-800 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="mb-8 text-h2 font-heading font-bold text-[#2D5F4F] text-center">Credentials & Training</h2>
-            <Card className="border-[#A8D5BA]/30 bg-white">
+            <h2 className="mb-8 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8] text-center">Credentials & Training</h2>
+            <Card className="border-[#A8D5BA]/30 dark:border-gray-700 bg-white dark:bg-gray-800">
               <CardContent className="p-8">
-                <ul className="space-y-4 text-[#2C3E50]">
+                <ul className="space-y-4 text-[#2C3E50] dark:text-gray-300">
                   <li className="flex items-start gap-3">
-                    <div className="mt-1 h-2 w-2 rounded-full bg-[#2A7F7F] flex-shrink-0" />
+                    <div className="mt-1 h-2 w-2 rounded-full bg-[#2A7F7F] dark:bg-[#8CC9A8] flex-shrink-0" />
                     <span>Certified Relationship Coach</span>
                   </li>
                   <li className="flex items-start gap-3">
