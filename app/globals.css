@@ -46,36 +46,44 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Dark Mode - Brand Colors Adjusted for Readability */
+  --primary-green: #8CC9A8; /* Muted green */
+  --sky-blue: #A5D4F3; /* Accent blue */
+  --warm-neutral: #121212; /* Dark background */
+  --deep-teal: #2A7F7F; /* Keep for CTA */
+  --forest-green: #8CC9A8; /* Lighter green for headings */
+  --charcoal: #E5E5E5; /* Light text */
+  --white: #1E1E1E; /* Dark surface */
+
+  /* Semantic tokens for dark mode */
+  --background: #121212;
+  --foreground: #E5E5E5;
+  --card: #1E1E1E;
+  --card-foreground: #E5E5E5;
+  --primary: #2A7F7F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #8CC9A8;
+  --secondary-foreground: #121212;
+  --accent: #A5D4F3;
+  --accent-foreground: #121212;
+  --muted: #1E1E1E;
+  --muted-foreground: #B0B0B0;
+  --border: #333333;
+  --input: #1E1E1E;
+  --ring: #2A7F7F;
+  --sidebar: #1E1E1E;
+  --sidebar-foreground: #E5E5E5;
+  --sidebar-primary: #2A7F7F;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #8CC9A8;
+  --sidebar-accent-foreground: #121212;
+  --sidebar-border: #333333;
+  --sidebar-ring: #2A7F7F;
+  --chart-1: #8CC9A8;
+  --chart-2: #A5D4F3;
+  --chart-3: #2A7F7F;
+  --chart-4: #B0B0B0;
+  --chart-5: #E5E5E5;
 }
 
 @theme inline {
@@ -131,7 +139,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
   }
   h1,
   h2,
@@ -139,7 +147,7 @@
   h4,
   h5,
   h6 {
-    @apply font-heading font-semibold text-forest-green;
+    @apply font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8] transition-colors duration-300;
   }
   /* Typography scale from specification */
   .text-hero {

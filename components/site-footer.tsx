@@ -4,51 +4,51 @@ import { NewsletterForm } from "@/components/newsletter-form"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t bg-[#F5F3EE]">
+    <footer className="border-t bg-[#F5F3EE] dark:bg-gray-900 dark:border-gray-700 transition-colors">
       <div className="container mx-auto px-4 py-12 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <div className="mb-4 flex flex-col">
-              <span className="text-xl font-heading font-bold text-[#2D5F4F]">Ìbáṣepọ̀</span>
-              <span className="text-sm text-[#2A7F7F]">Connected Hearts</span>
+              <span className="text-xl font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">Ìbáṣepọ̀</span>
+              <span className="text-sm text-[#2A7F7F] dark:text-[#8CC9A8]">Connected Hearts</span>
             </div>
-            <p className="text-sm text-[#2C3E50] leading-relaxed">
+            <p className="text-sm text-[#2C3E50] dark:text-gray-300 leading-relaxed">
               Guiding families toward peace, purpose, and legacy through faith-based coaching.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F]">Quick Links</h3>
+            <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-[#2C3E50] hover:text-[#2A7F7F] transition-colors">
+                <Link href="/about" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-[#2C3E50] hover:text-[#2A7F7F] transition-colors">
+                <Link href="/services" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-[#2C3E50] hover:text-[#2A7F7F] transition-colors">
+                <Link href="/blog" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/testimonials" className="text-[#2C3E50] hover:text-[#2A7F7F] transition-colors">
+                <Link href="/testimonials" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-[#2C3E50] hover:text-[#2A7F7F] transition-colors">
+                <Link href="/gallery" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[#2C3E50] hover:text-[#2A7F7F] transition-colors">
+                <Link href="/contact" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Contact
                 </Link>
               </li>
@@ -57,42 +57,42 @@ export function SiteFooter() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F]">Contact Us</h3>
-            <ul className="space-y-2 text-sm text-[#2C3E50]">
+            <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">Contact Us</h3>
+            <ul className="space-y-2 text-sm text-[#2C3E50] dark:text-gray-300">
               <li className="flex items-start gap-2">
-                <Mail className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F]" />
+                <Mail className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F] dark:text-[#8CC9A8]" />
                 <div className="flex flex-col">
-                  <a href="mailto:enquiries@ibasepo.org.uk" className="hover:text-[#2A7F7F] transition-colors">
+                  <a href="mailto:enquiries@ibasepo.org.uk" className="hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                     enquiries@ibasepo.org.uk
                   </a>
-                  <a href="mailto:eo.bismark@ibasepo.org.uk" className="hover:text-[#2A7F7F] transition-colors">
+                  <a href="mailto:eo.bismark@ibasepo.org.uk" className="hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                     eo.bismark@ibasepo.org.uk
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-2">
-                <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F]" />
+                <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F] dark:text-[#8CC9A8]" />
                 <div className="flex flex-col">
-                  <a href="tel:+447958709238" className="hover:text-[#2A7F7F] transition-colors">
+                  <a href="tel:+447958709238" className="hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                     +44 7958 709238
                   </a>
                   <a
                     href="https://wa.me/447958709238"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-[#2C3E50]/80 hover:text-[#2A7F7F] transition-colors"
+                    className="text-xs text-[#2C3E50]/80 dark:text-gray-400 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors"
                   >
                     (WhatsApp)
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F]" />
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F] dark:text-[#8CC9A8]" />
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=The+Living+Room+14+Brunswick+Street+Stretford+M32+8NJ+UK"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#2A7F7F] transition-colors"
+                  className="hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors"
                 >
                   The Living Room, 14 Brunswick Street, Stretford, M32 8NJ, UK
                 </a>
@@ -102,15 +102,15 @@ export function SiteFooter() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F]">Stay Connected</h3>
-            <p className="mb-4 text-sm text-[#2C3E50]">Subscribe to our newsletter for updates and insights.</p>
+            <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">Stay Connected</h3>
+            <p className="mb-4 text-sm text-[#2C3E50] dark:text-gray-300">Subscribe to our newsletter for updates and insights.</p>
             <NewsletterForm />
             <div className="mt-4 flex gap-4">
               <a
                 href="https://www.facebook.com/profile.php?id=100002866323294"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#2A7F7F] hover:text-[#2D5F4F] transition-colors"
+                className="text-[#2A7F7F] dark:text-[#8CC9A8] hover:text-[#2D5F4F] dark:hover:text-[#A5D4F3] transition-colors"
                 aria-label="Visit our Facebook page"
               >
                 <Facebook className="h-5 w-5" />
@@ -119,7 +119,7 @@ export function SiteFooter() {
                 href="https://www.instagram.com/adukelara?igsh=MWQ0cWx1eGtpaXdxcw=="
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#2A7F7F] hover:text-[#2D5F4F] transition-colors"
+                className="text-[#2A7F7F] dark:text-[#8CC9A8] hover:text-[#2D5F4F] dark:hover:text-[#A5D4F3] transition-colors"
                 aria-label="Visit our Instagram page"
               >
                 <Instagram className="h-5 w-5" />
@@ -141,13 +141,13 @@ export function SiteFooter() {
           />
         </div>
 
-        <div className="mt-8 border-t border-[#2A7F7F]/20 pt-8 text-center text-sm text-[#2C3E50]">
+        <div className="mt-8 border-t border-[#2A7F7F]/20 dark:border-gray-700 pt-8 text-center text-sm text-[#2C3E50] dark:text-gray-300">
           <p>&copy; {new Date().getFullYear()} Ìbáṣepọ̀ Connected Hearts. All rights reserved.</p>
           <div className="mt-2 flex justify-center gap-4">
-            <Link href="/legal/privacy" className="hover:text-[#2A7F7F] transition-colors">
+            <Link href="/legal/privacy" className="hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/legal/terms" className="hover:text-[#2A7F7F] transition-colors">
+            <Link href="/legal/terms" className="hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
               Terms of Service
             </Link>
           </div>

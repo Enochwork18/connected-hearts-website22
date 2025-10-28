@@ -257,7 +257,7 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
       </section>
 
       {/* Testimonials */}
-      <section ref={testimonialsRef} className="py-16 lg:py-24 bg-white">
+      <section ref={testimonialsRef} className="py-16 lg:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
           <MotionDiv
             className="mb-12 text-center"
@@ -267,8 +267,8 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
               transition: { duration: 0.6 },
             })}
           >
-            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F]">What Our Clients Say</h2>
-            <p className="mx-auto max-w-2xl text-[#2C3E50] leading-relaxed">
+            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">What Our Clients Say</h2>
+            <p className="mx-auto max-w-2xl text-[#2C3E50] dark:text-gray-300 leading-relaxed">
               Real stories of transformation and healing
             </p>
           </MotionDiv>
@@ -283,17 +283,17 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
           >
             {featuredTestimonials.map((testimonial) => (
               <MotionDiv key={testimonial.id} {...(!shouldReduceMotion && { variants: itemVariants })}>
-                <Card className="border-[#A8D5BA]/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
+                <Card className="border-[#A8D5BA]/30 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full bg-white dark:bg-gray-800">
                   <CardContent className="p-6">
                     <div className="mb-4 flex gap-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="h-5 w-5 fill-[#2A7F7F] text-[#2A7F7F]" />
                       ))}
                     </div>
-                    <p className="mb-4 text-[#2C3E50] leading-relaxed italic">"{testimonial.text}"</p>
-                    <div className="border-t border-[#A8D5BA]/30 pt-4">
-                      <p className="font-semibold text-[#2D5F4F]">{testimonial.name}</p>
-                      <p className="text-sm text-[#2A7F7F]">{testimonial.service}</p>
+                    <p className="mb-4 text-[#2C3E50] dark:text-gray-300 leading-relaxed italic">"{testimonial.text}"</p>
+                    <div className="border-t border-[#A8D5BA]/30 dark:border-gray-700 pt-4">
+                      <p className="font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">{testimonial.name}</p>
+                      <p className="text-sm text-[#2A7F7F] dark:text-[#8CC9A8]">{testimonial.service}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -321,7 +321,7 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
       </section>
 
       {/* Recent Blog Posts */}
-      <section ref={blogRef} className="py-16 lg:py-24 bg-[#F5F3EE]">
+      <section ref={blogRef} className="py-16 lg:py-24 bg-[#F5F3EE] dark:bg-gray-800 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
           <MotionDiv
             className="mb-12 text-center"
@@ -331,8 +331,8 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
               transition: { duration: 0.6 },
             })}
           >
-            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F]">Latest from Our Blog</h2>
-            <p className="mx-auto max-w-2xl text-[#2C3E50] leading-relaxed">
+            <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">Latest from Our Blog</h2>
+            <p className="mx-auto max-w-2xl text-[#2C3E50] dark:text-gray-300 leading-relaxed">
               Insights and inspiration for your relationship journey
             </p>
           </MotionDiv>
@@ -347,7 +347,7 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
           >
             {recentPosts.map((post) => (
               <MotionDiv key={post.id} {...(!shouldReduceMotion && { variants: itemVariants })}>
-                <Card className="group hover:shadow-lg transition-all duration-300 border-[#A8D5BA]/30 hover:-translate-y-2 h-full">
+                <Card className="group hover:shadow-lg transition-all duration-300 border-[#A8D5BA]/30 dark:border-gray-700 hover:-translate-y-2 h-full bg-white dark:bg-gray-800">
                   <CardContent className="p-0">
                     <div className="relative aspect-video overflow-hidden rounded-t-lg bg-[#CFEAFB]/20">
                       <Image
@@ -361,10 +361,10 @@ export function AnimatedHome({ featuredServices, recentPosts, featuredTestimonia
                       <div className="mb-2 inline-block rounded-full bg-[#A8D5BA]/20 px-3 py-1 text-xs font-medium text-[#2A7F7F]">
                         {post.category}
                       </div>
-                      <h3 className="mb-2 text-xl font-heading font-semibold text-[#2D5F4F] line-clamp-2">
+                      <h3 className="mb-2 text-xl font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8] line-clamp-2">
                         {post.title}
                       </h3>
-                      <p className="mb-4 text-sm text-[#2C3E50] leading-relaxed line-clamp-3">{post.excerpt}</p>
+                      <p className="mb-4 text-sm text-[#2C3E50] dark:text-gray-300 leading-relaxed line-clamp-3">{post.excerpt}</p>
                       <div className="flex items-center justify-between text-sm text-[#2C3E50]/70">
                         <span>{post.readTime} read</span>
                         <Button variant="link" asChild className="px-0 text-[#2A7F7F] hover:text-[#2D5F4F] group/link">
