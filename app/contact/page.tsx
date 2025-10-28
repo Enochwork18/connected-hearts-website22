@@ -17,6 +17,7 @@ export default function ContactPage() {
     phone: "",
     subject: "",
     message: "",
+    honeypot: "", // Spam protection
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
@@ -26,13 +27,21 @@ export default function ContactPage() {
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
+    // Honeypot check - if filled, it's a bot
+    if (formData.honeypot) {
+      console.log("[Security] Bot detected via honeypot")
+      setSubmitStatus("success") // Fake success to fool bots
+      setIsSubmitting(false)
+      return
+    }
+
     try {
       // Simulate API delay
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
       console.log("[v0] Contact form submitted (mock):", formData)
       setSubmitStatus("success")
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "", honeypot: "" })
     } catch (error) {
       console.error("[v0] Contact form submission error:", error)
       setSubmitStatus("error")
@@ -93,14 +102,19 @@ export default function ContactPage() {
                     <Phone className="h-6 w-6 text-[#2A7F7F]" />
                   </div>
                   <h3 className="mb-2 font-semibold text-[#2D5F4F]">Call or WhatsApp</h3>
-                  <a
-                    href="https://wa.me/447958709238"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-[#2A7F7F] hover:underline"
-                  >
-                    +44 7958 709238
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a href="tel:+447958709238" className="text-sm text-[#2A7F7F] hover:underline">
+                      +44 7958 709238
+                    </a>
+                    <a
+                      href="https://wa.me/447958709238"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-[#2C3E50] hover:text-[#2A7F7F]"
+                    >
+                      (WhatsApp)
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -110,7 +124,14 @@ export default function ContactPage() {
                     <MapPin className="h-6 w-6 text-[#2A7F7F]" />
                   </div>
                   <h3 className="mb-2 font-semibold text-[#2D5F4F]">Visit Us</h3>
-                  <p className="text-sm text-[#2C3E50]">The Living Room, 14 Brunswick Street, Stretford, M32 8NJ, UK</p>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=The+Living+Room+14+Brunswick+Street+Stretford+M32+8NJ+UK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-[#2C3E50] hover:text-[#2A7F7F] transition-colors"
+                  >
+                    The Living Room, 14 Brunswick Street, Stretford, M32 8NJ, UK
+                  </a>
                 </CardContent>
               </Card>
 
@@ -138,6 +159,17 @@ export default function ContactPage() {
               <Card className="border-[#A8D5BA]/30">
                 <CardContent className="pt-6">
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Honeypot field - hidden from users, visible to bots */}
+                    <input
+                      type="text"
+                      name="website"
+                      value={formData.honeypot}
+                      onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                      style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                    />
                     <div className="grid gap-6 sm:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="name">Name *</Label>

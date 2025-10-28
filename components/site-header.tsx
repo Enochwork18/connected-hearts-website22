@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X, User, LogOut, Shield } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@/lib/contexts/auth-context"
@@ -16,6 +17,7 @@ import {
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
   const { user, isAuthenticated, isAdmin, logout } = useAuth()
 
   const navigation = [
@@ -40,15 +42,22 @@ export function SiteHeader() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-6 lg:flex">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-medium text-[#2C3E50] transition-colors hover:text-[#2A7F7F]"
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navigation.map((item) => {
+            const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`text-sm font-medium transition-colors hover:text-[#2A7F7F] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2A7F7F] focus-visible:ring-offset-2 rounded-sm px-2 py-1 ${
+                  isActive
+                    ? "text-[#2A7F7F] font-semibold border-b-2 border-[#2A7F7F]"
+                    : "text-[#2C3E50]"
+                }`}
+              >
+                {item.name}
+              </Link>
+            )
+          })}
           <Button asChild className="bg-[#2A7F7F] hover:bg-[#2D5F4F] text-white">
             <Link href="/booking">Book a Session</Link>
           </Button>
@@ -60,7 +69,7 @@ export function SiteHeader() {
                   <User className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuContent align="end" className="w-56 bg-white border-[#A8D5BA]/30">
                 <DropdownMenuLabel>
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium">{user?.name}</p>
@@ -94,7 +103,7 @@ export function SiteHeader() {
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">Login</Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuContent align="end" className="w-48 bg-white border-[#A8D5BA]/30">
                 <DropdownMenuItem asChild>
                   <Link href="/login" className="cursor-pointer">
                     <User className="mr-2 h-4 w-4" />
@@ -127,16 +136,21 @@ export function SiteHeader() {
       {mobileMenuOpen && (
         <div className="border-t bg-white lg:hidden">
           <div className="container mx-auto space-y-1 px-4 py-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block rounded-md px-3 py-2 text-base font-medium text-[#2C3E50] hover:bg-[#F5F3EE]"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
+              return (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-[#F5F3EE] ${
+                    isActive ? "bg-[#A8D5BA]/20 text-[#2A7F7F] font-semibold" : "text-[#2C3E50]"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              )
+            })}
             <Button asChild className="w-full bg-[#2A7F7F] hover:bg-[#2D5F4F] text-white">
               <Link href="/booking" onClick={() => setMobileMenuOpen(false)}>
                 Book a Session

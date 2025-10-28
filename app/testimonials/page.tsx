@@ -25,6 +25,8 @@ export default function TestimonialsPage() {
     service: "",
     rating: 5,
     testimonial: "",
+    photo: null as File | null,
+    honeypot: "", // Spam protection
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
@@ -49,6 +51,18 @@ export default function TestimonialsPage() {
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
+    // Honeypot check - if filled, it's a bot
+    if (formData.honeypot) {
+      console.log("[Security] Bot detected via honeypot")
+      setSubmitStatus("success") // Fake success to fool bots
+      setIsSubmitting(false)
+      setTimeout(() => {
+        setShowSubmitForm(false)
+        setSubmitStatus("idle")
+      }, 2000)
+      return
+    }
+
     try {
       await apiService.testimonials.submit({
         name: formData.name,
@@ -56,10 +70,11 @@ export default function TestimonialsPage() {
         service: formData.service,
         rating: formData.rating,
         text: formData.testimonial,
+        photo: formData.photo,
       })
 
       setSubmitStatus("success")
-      setFormData({ name: "", email: "", service: "", rating: 5, testimonial: "" })
+      setFormData({ name: "", email: "", service: "", rating: 5, testimonial: "", photo: null, honeypot: "" })
       setTimeout(() => {
         setShowSubmitForm(false)
         setSubmitStatus("idle")
@@ -231,6 +246,17 @@ export default function TestimonialsPage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmitTestimonial} className="space-y-6">
+                      {/* Honeypot field - hidden from users, visible to bots */}
+                      <input
+                        type="text"
+                        name="website"
+                        value={formData.honeypot}
+                        onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                        style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px" }}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        aria-hidden="true"
+                      />
                       <div className="grid gap-6 md:grid-cols-2">
                         <div className="space-y-2">
                           <Label htmlFor="name">Your Name *</Label>
@@ -313,6 +339,24 @@ export default function TestimonialsPage() {
                         />
                         <p className="text-xs text-muted-foreground">
                           Please share specific details about how our services helped you.
+                        </p>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="photo">Photo (Optional)</Label>
+                        <Input
+                          id="photo"
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0] || null
+                            setFormData({ ...formData, photo: file })
+                          }}
+                          disabled={isSubmitting}
+                          className="cursor-pointer"
+                        />
+                        <p className="text-xs text-muted-foreground">
+                          Upload a photo to display with your testimonial (max 5MB).
                         </p>
                       </div>
 

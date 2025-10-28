@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "@/components/icons"
+import { Facebook, Instagram, Mail, Phone, MapPin } from "@/components/icons"
 import { NewsletterForm } from "@/components/newsletter-form"
 
 export function SiteFooter() {
@@ -72,18 +72,30 @@ export function SiteFooter() {
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F]" />
+                <div className="flex flex-col">
+                  <a href="tel:+447958709238" className="hover:text-[#2A7F7F] transition-colors">
+                    +44 7958 709238
+                  </a>
+                  <a
+                    href="https://wa.me/447958709238"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#2C3E50]/80 hover:text-[#2A7F7F] transition-colors"
+                  >
+                    (WhatsApp)
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F]" />
                 <a
-                  href="https://wa.me/447958709238"
+                  href="https://www.google.com/maps/search/?api=1&query=The+Living+Room+14+Brunswick+Street+Stretford+M32+8NJ+UK"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#2A7F7F] transition-colors"
                 >
-                  +44 7958 709238
+                  The Living Room, 14 Brunswick Street, Stretford, M32 8NJ, UK
                 </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F]" />
-                <span>The Living Room, 14 Brunswick Street, Stretford, M32 8NJ, UK</span>
               </li>
             </ul>
           </div>
@@ -94,15 +106,24 @@ export function SiteFooter() {
             <p className="mb-4 text-sm text-[#2C3E50]">Subscribe to our newsletter for updates and insights.</p>
             <NewsletterForm />
             <div className="mt-4 flex gap-4">
-              <Link href="#" className="text-[#2A7F7F] hover:text-[#2D5F4F] transition-colors">
+              <a
+                href="https://www.facebook.com/profile.php?id=100002866323294"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2A7F7F] hover:text-[#2D5F4F] transition-colors"
+                aria-label="Visit our Facebook page"
+              >
                 <Facebook className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-[#2A7F7F] hover:text-[#2D5F4F] transition-colors">
+              </a>
+              <a
+                href="https://www.instagram.com/adukelara?igsh=MWQ0cWx1eGtpaXdxcw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#2A7F7F] hover:text-[#2D5F4F] transition-colors"
+                aria-label="Visit our Instagram page"
+              >
                 <Instagram className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-[#2A7F7F] hover:text-[#2D5F4F] transition-colors">
-                <Twitter className="h-5 w-5" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

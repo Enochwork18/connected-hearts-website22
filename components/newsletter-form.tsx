@@ -8,11 +8,19 @@ import { apiService } from "@/lib/services/api"
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("")
+  const [honeypot, setHoneypot] = useState("") // Spam protection
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Honeypot check - if filled, it's a bot
+    if (honeypot) {
+      console.log("[Security] Bot detected via honeypot")
+      setStatus("success") // Fake success to fool bots
+      return
+    }
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setStatus("error")
@@ -40,6 +48,17 @@ export function NewsletterForm() {
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex gap-2" aria-label="Newsletter subscription form">
+        {/* Honeypot field - hidden from users, visible to bots */}
+        <input
+          type="text"
+          name="website"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px" }}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
         <Input
           type="email"
           placeholder="Enter your email"
