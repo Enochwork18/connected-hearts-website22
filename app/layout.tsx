@@ -6,6 +6,7 @@ import { AuthProvider } from "@/lib/contexts/auth-context"
 import { ThemeProvider } from "@/lib/contexts/theme-context"
 import { PageTransition } from "@/components/page-transition"
 import { ConditionalLayout } from "@/components/conditional-layout"
+import { MSWProvider } from "@/components/providers"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -74,15 +75,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${montserrat.variable} ${lato.variable}`}>
-        <ThemeProvider>
-          <AuthProvider>
-            <PageTransition>
-              <ConditionalLayout>
-                {children}
-              </ConditionalLayout>
-            </PageTransition>
-          </AuthProvider>
-        </ThemeProvider>
+        <MSWProvider>
+          <ThemeProvider>
+            <AuthProvider>
+              <PageTransition>
+                <ConditionalLayout>
+                  {children}
+                </ConditionalLayout>
+              </PageTransition>
+            </AuthProvider>
+          </ThemeProvider>
+        </MSWProvider>
       </body>
     </html>
   )
