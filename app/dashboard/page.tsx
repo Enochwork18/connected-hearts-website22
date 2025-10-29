@@ -38,10 +38,10 @@ export default function DashboardPage() {
   console.log("[v0] Dashboard - Rendering dashboard for user:", user?.email)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5F3EE] to-white">
+    <div className="min-h-screen bg-gradient-to-br from-[#F5F3EE] to-white dark:from-[#121212] dark:to-[#1E1E1E] transition-colors">
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-heading font-bold text-[#2D5F4F] mb-2">Welcome back, {user?.name}!</h1>
+          <h1 className="text-3xl font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8] mb-2 transition-colors">Welcome back, {user?.name}!</h1>
           <p className="text-muted-foreground">Manage your bookings and account settings</p>
         </div>
 

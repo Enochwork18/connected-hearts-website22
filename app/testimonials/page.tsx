@@ -113,10 +113,10 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Filters */}
-      <section className="border-b bg-background py-8">
+      <section className="border-b border-border dark:border-slate-700 bg-background dark:bg-slate-900 py-8">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
-            <span className="text-sm font-medium text-forest">Filter by:</span>
+            <span className="text-sm font-medium text-forest dark:text-white">Filter by:</span>
 
             {/* Service Filter */}
             <div className="flex flex-wrap gap-2">
@@ -134,7 +134,7 @@ export default function TestimonialsPage() {
                   variant={selectedService === service ? "default" : "outline"}
                   size="sm"
                   onClick={() => setSelectedService(service)}
-                  className={selectedService === service ? "bg-teal hover:bg-teal/90" : ""}
+                  className={selectedService === service ? "bg-teal hover:bg-teal/90 dark:bg-teal-600 dark:hover:bg-teal-700" : "dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"}
                 >
                   {service}
                 </Button>
@@ -166,32 +166,32 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-background dark:bg-slate-900">
         <div className="container mx-auto px-4 lg:px-8">
           {filteredTestimonials.length > 0 ? (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredTestimonials.map((testimonial) => (
                 <Card
                   key={testimonial.id}
-                  className="border-teal/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  className="border-teal/20 dark:border-teal-800 dark:bg-slate-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                 >
                   <CardContent className="pt-6">
                     <div className="mb-4 flex gap-1" aria-label={`Rating: ${testimonial.rating} out of 5 stars`}>
                       {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <Star key={i} className="h-5 w-5 fill-teal text-teal" aria-hidden="true" />
+                        <Star key={i} className="h-5 w-5 fill-teal text-teal dark:fill-teal-400 dark:text-teal-400" aria-hidden="true" />
                       ))}
                     </div>
-                    <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">"{testimonial.text}"</p>
+                    <p className="mb-6 text-sm leading-relaxed text-muted-foreground dark:text-slate-300 italic">"{testimonial.text}"</p>
                     <div className="flex items-center gap-3">
                       <div
-                        className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-lg font-semibold text-teal"
+                        className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-teal-900/30 text-lg font-semibold text-teal dark:text-teal-400"
                         aria-hidden="true"
                       >
                         {testimonial.name.charAt(0)}
                       </div>
                       <div>
-                        <p className="font-semibold text-forest">{testimonial.name}</p>
-                        <p className="text-xs text-teal">{testimonial.service}</p>
+                        <p className="font-semibold text-forest dark:text-white">{testimonial.name}</p>
+                        <p className="text-xs text-teal dark:text-teal-400">{testimonial.service}</p>
                         <p className="text-xs text-muted-foreground">
                           {new Date(testimonial.date).toLocaleDateString("en-GB", {
                             month: "long",
@@ -213,13 +213,13 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Testimonial Submission Section */}
-      <section className="py-16 lg:py-24 bg-[#F5F3EE]">
+      <section className="py-16 lg:py-24 bg-[#F5F3EE] dark:bg-slate-800">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="mx-auto max-w-3xl">
             {!showSubmitForm ? (
               <div className="text-center">
-                <h2 className="mb-4 text-3xl font-heading font-bold text-[#2D5F4F]">Share Your Experience</h2>
-                <p className="mb-8 text-[#2C3E50] leading-relaxed">
+                <h2 className="mb-4 text-3xl font-heading font-bold text-[#2D5F4F] dark:text-white">Share Your Experience</h2>
+                <p className="mb-8 text-[#2C3E50] dark:text-slate-300 leading-relaxed">
                   Have you worked with us? We'd love to hear about your journey and how our services have helped you.
                 </p>
                 <Button
@@ -231,15 +231,15 @@ export default function TestimonialsPage() {
                 </Button>
               </div>
             ) : (
-              <Card className="border-[#A8D5BA]/30">
+              <Card className="border-[#A8D5BA]/30 dark:bg-slate-900 dark:border-slate-700">
                 <CardContent className="p-8">
-                  <h2 className="mb-6 text-2xl font-heading font-bold text-[#2D5F4F]">Submit Your Testimonial</h2>
+                  <h2 className="mb-6 text-2xl font-heading font-bold text-[#2D5F4F] dark:text-white">Submit Your Testimonial</h2>
 
                   {submitStatus === "success" ? (
                     <div className="text-center py-8">
                       <div className="mb-4 text-5xl">✓</div>
-                      <h3 className="text-xl font-semibold text-[#2A7F7F] mb-2">Thank You!</h3>
-                      <p className="text-[#2C3E50]">
+                      <h3 className="text-xl font-semibold text-[#2A7F7F] dark:text-teal-400 mb-2">Thank You!</h3>
+                      <p className="text-[#2C3E50] dark:text-slate-300">
                         Your testimonial has been submitted and is pending approval. We appreciate you sharing your
                         experience!
                       </p>
@@ -292,12 +292,12 @@ export default function TestimonialsPage() {
                             disabled={isSubmitting}
                             required
                           >
-                            <SelectTrigger id="service">
+                            <SelectTrigger id="service" className="bg-white dark:bg-[#1E1E1E]">
                               <SelectValue placeholder="Select a service" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent className="bg-white dark:bg-[#1E1E1E] border-[#E9E7E5] dark:border-[#303030]">
                               {serviceTypes.map((service) => (
-                                <SelectItem key={service} value={service}>
+                                <SelectItem key={service} value={service} className="focus:bg-[#F5F3EE] dark:focus:bg-[#303030]">
                                   {service}
                                 </SelectItem>
                               ))}
@@ -311,15 +311,15 @@ export default function TestimonialsPage() {
                             onValueChange={(value) => setFormData({ ...formData, rating: Number.parseInt(value) })}
                             disabled={isSubmitting}
                           >
-                            <SelectTrigger id="rating">
+                            <SelectTrigger id="rating" className="bg-white dark:bg-[#1E1E1E]">
                               <SelectValue />
                             </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="5">5 Stars - Excellent</SelectItem>
-                              <SelectItem value="4">4 Stars - Very Good</SelectItem>
-                              <SelectItem value="3">3 Stars - Good</SelectItem>
-                              <SelectItem value="2">2 Stars - Fair</SelectItem>
-                              <SelectItem value="1">1 Star - Poor</SelectItem>
+                            <SelectContent className="bg-white dark:bg-[#1E1E1E] border-[#E9E7E5] dark:border-[#303030]">
+                              <SelectItem value="5" className="focus:bg-[#F5F3EE] dark:focus:bg-[#303030]">5 Stars - Excellent</SelectItem>
+                              <SelectItem value="4" className="focus:bg-[#F5F3EE] dark:focus:bg-[#303030]">4 Stars - Very Good</SelectItem>
+                              <SelectItem value="3" className="focus:bg-[#F5F3EE] dark:focus:bg-[#303030]">3 Stars - Good</SelectItem>
+                              <SelectItem value="2" className="focus:bg-[#F5F3EE] dark:focus:bg-[#303030]">2 Stars - Fair</SelectItem>
+                              <SelectItem value="1" className="focus:bg-[#F5F3EE] dark:focus:bg-[#303030]">1 Star - Poor</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
@@ -361,7 +361,7 @@ export default function TestimonialsPage() {
                       </div>
 
                       {submitStatus === "error" && (
-                        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
+                        <div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg text-red-800 dark:text-red-300 text-sm">
                           Something went wrong. Please try again later.
                         </div>
                       )}

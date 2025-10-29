@@ -66,11 +66,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   console.log("[v0] Admin Layout - Rendering admin layout")
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-white dark:bg-[#121212] transition-colors">
       <AdminHeader />
       <div className="flex flex-1">
         <AdminSidebar />
-        <main className="flex-1 bg-[#F5F3EE] p-8">{children}</main>
+        <main className="flex-1 bg-[#F5F3EE] dark:bg-[#121212] p-8 transition-colors">{children}</main>
       </div>
     </div>
   )

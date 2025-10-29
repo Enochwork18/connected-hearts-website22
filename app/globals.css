@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated to use correct brand colors from specification */
+  /* Brand Colors - Light Mode */
   --primary-green: #a8d5ba;
   --sky-blue: #cfeafb;
   --warm-neutral: #f5f3ee;
@@ -13,7 +13,14 @@
   --charcoal: #2c3e50;
   --white: #ffffff;
 
-  /* Semantic tokens */
+  /* Semantic tokens - Light Mode */
+  --bg-page: #f5f3ee;
+  --bg-surface: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #4a5a66;
+  --link: #2a7f7f;
+  --card-shadow: 0 6px 18px rgba(44, 62, 80, 0.08);
+  
   --background: var(--warm-neutral);
   --foreground: var(--charcoal);
   --card: var(--white);
@@ -26,7 +33,7 @@
   --accent-foreground: var(--charcoal);
   --muted: var(--warm-neutral);
   --muted-foreground: #6b7280;
-  --border: #e5e7eb;
+  --border: #e9e7e5;
   --input: #e5e7eb;
   --ring: var(--deep-teal);
   --radius: 0.5rem;
@@ -46,44 +53,51 @@
 }
 
 .dark {
-  /* Dark Mode - Brand Colors Adjusted for Readability */
-  --primary-green: #8CC9A8; /* Muted green */
-  --sky-blue: #A5D4F3; /* Accent blue */
-  --warm-neutral: #121212; /* Dark background */
-  --deep-teal: #2A7F7F; /* Keep for CTA */
-  --forest-green: #8CC9A8; /* Lighter green for headings */
-  --charcoal: #E5E5E5; /* Light text */
-  --white: #1E1E1E; /* Dark surface */
+  /* Brand Colors - Dark Mode (adjusted for readability) */
+  --primary-green: #8cc9a8;
+  --sky-blue: #a5d4f3;
+  --warm-neutral: #121212;
+  --deep-teal: #2a7f7f;
+  --forest-green: #8cc9a8;
+  --charcoal: #e5e5e5;
+  --white: #1e1e1e;
 
-  /* Semantic tokens for dark mode */
+  /* Semantic tokens - Dark Mode */
+  --bg-page: #121212;
+  --bg-surface: #1e1e1e;
+  --text-primary: #e5e5e5;
+  --text-secondary: #b0b0b0;
+  --link: #2a7f7f;
+  --card-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  
   --background: #121212;
-  --foreground: #E5E5E5;
-  --card: #1E1E1E;
-  --card-foreground: #E5E5E5;
-  --primary: #2A7F7F;
-  --primary-foreground: #FFFFFF;
-  --secondary: #8CC9A8;
+  --foreground: #e5e5e5;
+  --card: #1e1e1e;
+  --card-foreground: #e5e5e5;
+  --primary: #2a7f7f;
+  --primary-foreground: #ffffff;
+  --secondary: #8cc9a8;
   --secondary-foreground: #121212;
-  --accent: #A5D4F3;
+  --accent: #a5d4f3;
   --accent-foreground: #121212;
-  --muted: #1E1E1E;
-  --muted-foreground: #B0B0B0;
-  --border: #333333;
-  --input: #1E1E1E;
-  --ring: #2A7F7F;
-  --sidebar: #1E1E1E;
-  --sidebar-foreground: #E5E5E5;
-  --sidebar-primary: #2A7F7F;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #8CC9A8;
+  --muted: #1e1e1e;
+  --muted-foreground: #b0b0b0;
+  --border: #303030;
+  --input: #1e1e1e;
+  --ring: #2a7f7f;
+  --sidebar: #1e1e1e;
+  --sidebar-foreground: #e5e5e5;
+  --sidebar-primary: #2a7f7f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #8cc9a8;
   --sidebar-accent-foreground: #121212;
-  --sidebar-border: #333333;
-  --sidebar-ring: #2A7F7F;
-  --chart-1: #8CC9A8;
-  --chart-2: #A5D4F3;
-  --chart-3: #2A7F7F;
-  --chart-4: #B0B0B0;
-  --chart-5: #E5E5E5;
+  --sidebar-border: #303030;
+  --sidebar-ring: #2a7f7f;
+  --chart-1: #8cc9a8;
+  --chart-2: #a5d4f3;
+  --chart-3: #2a7f7f;
+  --chart-4: #b0b0b0;
+  --chart-5: #e5e5e5;
 }
 
 @theme inline {

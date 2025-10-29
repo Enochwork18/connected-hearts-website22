@@ -74,17 +74,17 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-background dark:bg-slate-900">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-3">
             {/* Contact Info */}
             <div className="space-y-8">
-              <Card className="border-[#A8D5BA]/30">
+              <Card className="border-[#A8D5BA]/30 dark:bg-slate-800 dark:border-slate-700">
                 <CardContent className="pt-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20">
-                    <Mail className="h-6 w-6 text-[#2A7F7F]" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20 dark:bg-teal-900/30">
+                    <Mail className="h-6 w-6 text-[#2A7F7F] dark:text-teal-400" />
                   </div>
-                  <h3 className="mb-2 font-semibold text-[#2D5F4F]">Email Us</h3>
+                  <h3 className="mb-2 font-semibold text-[#2D5F4F] dark:text-white">Email Us</h3>
                   <div className="flex flex-col gap-1">
                     <a href="mailto:enquiries@ibasepo.org.uk" className="text-sm text-[#2A7F7F] hover:underline">
                       enquiries@ibasepo.org.uk
@@ -96,12 +96,12 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-[#A8D5BA]/30">
+              <Card className="border-[#A8D5BA]/30 dark:bg-slate-800 dark:border-slate-700">
                 <CardContent className="pt-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20">
-                    <Phone className="h-6 w-6 text-[#2A7F7F]" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20 dark:bg-teal-900/30">
+                    <Phone className="h-6 w-6 text-[#2A7F7F] dark:text-teal-400" />
                   </div>
-                  <h3 className="mb-2 font-semibold text-[#2D5F4F]">Call or WhatsApp</h3>
+                  <h3 className="mb-2 font-semibold text-[#2D5F4F] dark:text-white">Call or WhatsApp</h3>
                   <div className="flex flex-col gap-1">
                     <a href="tel:+447958709238" className="text-sm text-[#2A7F7F] hover:underline">
                       +44 7958 709238
@@ -118,12 +118,12 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-[#A8D5BA]/30">
+              <Card className="border-[#A8D5BA]/30 dark:bg-slate-800 dark:border-slate-700">
                 <CardContent className="pt-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20">
-                    <MapPin className="h-6 w-6 text-[#2A7F7F]" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#A8D5BA]/20 dark:bg-teal-900/30">
+                    <MapPin className="h-6 w-6 text-[#2A7F7F] dark:text-teal-400" />
                   </div>
-                  <h3 className="mb-2 font-semibold text-[#2D5F4F]">Visit Us</h3>
+                  <h3 className="mb-2 font-semibold text-[#2D5F4F] dark:text-white">Visit Us</h3>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=The+Living+Room+14+Brunswick+Street+Stretford+M32+8NJ+UK"
                     target="_blank"
@@ -136,7 +136,7 @@ export default function ContactPage() {
               </Card>
 
               {/* Google Maps Embed */}
-              <Card className="border-[#A8D5BA]/30">
+              <Card className="border-[#A8D5BA]/30 dark:bg-slate-800 dark:border-slate-700">
                 <CardContent className="p-0">
                   <div className="aspect-video overflow-hidden rounded-lg">
                     <iframe
@@ -156,7 +156,7 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="border-[#A8D5BA]/30">
+              <Card className="border-[#A8D5BA]/30 dark:bg-slate-800 dark:border-slate-700">
                 <CardContent className="pt-6">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Honeypot field - hidden from users, visible to bots */}
@@ -224,13 +224,13 @@ export default function ContactPage() {
                     </div>
 
                     {submitStatus === "success" && (
-                      <div className="rounded-lg bg-[#A8D5BA]/20 p-4 text-sm text-[#2A7F7F]">
+                      <div className="rounded-lg bg-[#A8D5BA]/20 dark:bg-teal-900/30 p-4 text-sm text-[#2A7F7F] dark:text-teal-300">
                         Thank you for your message! We'll get back to you soon.
                       </div>
                     )}
 
                     {submitStatus === "error" && (
-                      <div className="rounded-lg bg-destructive/10 p-4 text-sm text-destructive">
+                      <div className="rounded-lg bg-destructive/10 dark:bg-red-900/30 p-4 text-sm text-destructive dark:text-red-300">
                         Something went wrong. Please try again or email us directly.
                       </div>
                     )}

@@ -32,7 +32,7 @@ export function SiteHeader() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 dark:bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-900/80 shadow-sm transition-colors">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 dark:bg-[#1E1E1E]/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-[#1E1E1E]/80 shadow-sm transition-colors">
       <nav className="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex flex-col">
@@ -72,7 +72,7 @@ export function SiteHeader() {
                   <User className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-white border-[#A8D5BA]/30">
+              <DropdownMenuContent align="end" className="w-56 bg-white dark:bg-[#1E1E1E] border-[#A8D5BA]/30 dark:border-[#303030]">
                 <DropdownMenuLabel>
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium">{user?.name}</p>
@@ -106,7 +106,7 @@ export function SiteHeader() {
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">Login</Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48 bg-white border-[#A8D5BA]/30">
+              <DropdownMenuContent align="end" className="w-48 bg-white dark:bg-[#1E1E1E] border-[#A8D5BA]/30 dark:border-[#303030]">
                 <DropdownMenuItem asChild>
                   <Link href="/login" className="cursor-pointer">
                     <User className="mr-2 h-4 w-4" />
@@ -126,18 +126,21 @@ export function SiteHeader() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden text-[#2C3E50]"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            className="text-[#2C3E50] dark:text-[#E5E5E5] transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="border-t bg-white lg:hidden">
+        <div className="border-t border-border bg-white dark:bg-[#1E1E1E] lg:hidden transition-colors">
           <div className="container mx-auto space-y-1 px-4 py-4">
             {navigation.map((item) => {
               const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
@@ -145,8 +148,8 @@ export function SiteHeader() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-[#F5F3EE] ${
-                    isActive ? "bg-[#A8D5BA]/20 text-[#2A7F7F] font-semibold" : "text-[#2C3E50]"
+                  className={`block rounded-md px-3 py-2 text-base font-medium hover:bg-[#F5F3EE] dark:hover:bg-[#303030] transition-colors ${
+                    isActive ? "bg-[#A8D5BA]/20 dark:bg-[#8CC9A8]/20 text-[#2A7F7F] dark:text-[#8CC9A8] font-semibold" : "text-[#2C3E50] dark:text-[#E5E5E5]"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -164,7 +167,7 @@ export function SiteHeader() {
               <>
                 <Link
                   href="/dashboard"
-                  className="block rounded-md px-3 py-2 text-base font-medium text-[#2C3E50] hover:bg-[#F5F3EE]"
+                  className="block rounded-md px-3 py-2 text-base font-medium text-[#2C3E50] dark:text-[#E5E5E5] hover:bg-[#F5F3EE] dark:hover:bg-[#303030] transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   My Dashboard
@@ -172,7 +175,7 @@ export function SiteHeader() {
                 {isAdmin && (
                   <Link
                     href="/admin"
-                    className="block rounded-md px-3 py-2 text-base font-medium text-[#2D5F4F] hover:bg-[#F5F3EE]"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-[#2D5F4F] dark:text-[#8CC9A8] hover:bg-[#F5F3EE] dark:hover:bg-[#303030] transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     Admin Panel
@@ -183,7 +186,7 @@ export function SiteHeader() {
                     logout()
                     setMobileMenuOpen(false)
                   }}
-                  className="w-full text-left rounded-md px-3 py-2 text-base font-medium text-red-600 hover:bg-[#F5F3EE]"
+                  className="w-full text-left rounded-md px-3 py-2 text-base font-medium text-red-600 dark:text-red-400 hover:bg-[#F5F3EE] dark:hover:bg-[#303030] transition-colors"
                 >
                   Logout
                 </button>
@@ -192,14 +195,14 @@ export function SiteHeader() {
               <>
                 <Link
                   href="/login"
-                  className="block rounded-md px-3 py-2 text-base font-medium text-[#2C3E50] hover:bg-[#F5F3EE]"
+                  className="block rounded-md px-3 py-2 text-base font-medium text-[#2C3E50] dark:text-[#E5E5E5] hover:bg-[#F5F3EE] dark:hover:bg-[#303030] transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   User Login
                 </Link>
                 <Link
                   href="/admin/login"
-                  className="block rounded-md px-3 py-2 text-base font-medium text-[#2D5F4F] hover:bg-[#F5F3EE] font-semibold"
+                  className="block rounded-md px-3 py-2 text-base font-medium text-[#2D5F4F] dark:text-[#8CC9A8] hover:bg-[#F5F3EE] dark:hover:bg-[#303030] font-semibold transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Admin Login

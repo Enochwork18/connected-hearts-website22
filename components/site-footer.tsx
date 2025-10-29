@@ -4,7 +4,7 @@ import { NewsletterForm } from "@/components/newsletter-form"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t bg-[#F5F3EE] dark:bg-gray-900 dark:border-gray-700 transition-colors">
+    <footer className="border-t bg-[#F5F3EE] dark:bg-[#121212] border-[#E9E7E5] dark:border-[#303030] transition-colors">
       <div className="container mx-auto px-4 py-12 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -13,7 +13,7 @@ export function SiteFooter() {
               <span className="text-xl font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">Ìbáṣepọ̀</span>
               <span className="text-sm text-[#2A7F7F] dark:text-[#8CC9A8]">Connected Hearts</span>
             </div>
-            <p className="text-sm text-[#2C3E50] dark:text-gray-300 leading-relaxed">
+            <p className="text-sm text-[#2C3E50] dark:text-[#B0B0B0] leading-relaxed">
               Guiding families toward peace, purpose, and legacy through faith-based coaching.
             </p>
           </div>
@@ -23,32 +23,32 @@ export function SiteFooter() {
             <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
+                <Link href="/about" className="text-[#2C3E50] dark:text-[#E5E5E5] hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
+                <Link href="/services" className="text-[#2C3E50] dark:text-[#E5E5E5] hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
+                <Link href="/blog" className="text-[#2C3E50] dark:text-[#E5E5E5] hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/testimonials" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
+                <Link href="/testimonials" className="text-[#2C3E50] dark:text-[#E5E5E5] hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
+                <Link href="/gallery" className="text-[#2C3E50] dark:text-[#E5E5E5] hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-[#2C3E50] dark:text-gray-300 hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
+                <Link href="/contact" className="text-[#2C3E50] dark:text-[#E5E5E5] hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">
                   Contact
                 </Link>
               </li>
@@ -58,7 +58,7 @@ export function SiteFooter() {
           {/* Contact Info */}
           <div>
             <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">Contact Us</h3>
-            <ul className="space-y-2 text-sm text-[#2C3E50] dark:text-gray-300">
+            <ul className="space-y-2 text-sm text-[#2C3E50] dark:text-[#E5E5E5]">
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0 text-[#2A7F7F] dark:text-[#8CC9A8]" />
                 <div className="flex flex-col">
@@ -103,7 +103,7 @@ export function SiteFooter() {
           {/* Newsletter */}
           <div>
             <h3 className="mb-4 text-sm font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">Stay Connected</h3>
-            <p className="mb-4 text-sm text-[#2C3E50] dark:text-gray-300">Subscribe to our newsletter for updates and insights.</p>
+            <p className="mb-4 text-sm text-[#2C3E50] dark:text-[#B0B0B0]">Subscribe to our newsletter for updates and insights.</p>
             <NewsletterForm />
             <div className="mt-4 flex gap-4">
               <a
@@ -141,7 +141,7 @@ export function SiteFooter() {
           />
         </div>
 
-        <div className="mt-8 border-t border-[#2A7F7F]/20 dark:border-gray-700 pt-8 text-center text-sm text-[#2C3E50] dark:text-gray-300">
+        <div className="mt-8 border-t border-[#2A7F7F]/20 dark:border-[#303030] pt-8 text-center text-sm text-[#2C3E50] dark:text-[#B0B0B0]">
           <p>&copy; {new Date().getFullYear()} Ìbáṣepọ̀ Connected Hearts. All rights reserved.</p>
           <div className="mt-2 flex justify-center gap-4">
             <Link href="/legal/privacy" className="hover:text-[#2A7F7F] dark:hover:text-[#8CC9A8] transition-colors">

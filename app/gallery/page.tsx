@@ -44,7 +44,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Category Filter */}
-      <section className="border-b bg-background py-8">
+      <section className="border-b border-border dark:border-slate-700 bg-background dark:bg-slate-900 py-8">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button
@@ -59,7 +59,7 @@ export default function GalleryPage() {
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category)}
-                className={selectedCategory === category ? "bg-teal hover:bg-teal/90" : ""}
+                className={selectedCategory === category ? "bg-teal hover:bg-teal/90 dark:bg-teal-600 dark:hover:bg-teal-700" : "dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"}
               >
                 {category}
               </Button>
@@ -69,7 +69,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Grid - Masonry Layout */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-background dark:bg-slate-900">
         <div className="container mx-auto px-4 lg:px-8">
           {filteredItems.length > 0 ? (
             <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
@@ -79,7 +79,7 @@ export default function GalleryPage() {
                   className="group relative mb-6 break-inside-avoid overflow-hidden rounded-lg cursor-pointer"
                   onClick={() => setLightboxImage(item.image)}
                 >
-                  <div className="overflow-hidden bg-muted">
+                  <div className="overflow-hidden bg-muted dark:bg-slate-800">
                     <img
                       src={item.image || "/placeholder.svg"}
                       alt={item.title}
@@ -91,7 +91,7 @@ export default function GalleryPage() {
                     <div className="absolute bottom-0 p-4 text-white">
                       <h3 className="font-semibold">{item.title}</h3>
                       {item.description && <p className="text-sm text-white/90">{item.description}</p>}
-                      <p className="mt-1 text-xs text-teal">{item.category}</p>
+                      <p className="mt-1 text-xs text-teal dark:text-teal-400">{item.category}</p>
                     </div>
                   </div>
                 </div>

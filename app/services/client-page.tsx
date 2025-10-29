@@ -49,18 +49,18 @@ export default function ServicesClientPage() {
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-white border-b">
+      <section className="py-8 bg-white dark:bg-gray-900 border-b dark:border-gray-700 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
           {/* Search Bar */}
           <div className="mb-6 max-w-2xl mx-auto">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[#2C3E50]/50" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[#2C3E50]/50 dark:text-gray-400" />
               <Input
                 type="text"
                 placeholder="Search services..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-white border-[#A8D5BA]/30"
+                className="pl-10 bg-white dark:bg-gray-800 border-[#A8D5BA]/30 dark:border-gray-700 dark:text-gray-300"
               />
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function ServicesClientPage() {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   selectedCategory === category
                     ? "bg-[#2A7F7F] text-white"
-                    : "bg-[#F5F3EE] text-[#2C3E50] hover:bg-[#A8D5BA]/20"
+                    : "bg-[#F5F3EE] dark:bg-gray-800 text-[#2C3E50] dark:text-gray-300 hover:bg-[#A8D5BA]/20 dark:hover:bg-gray-700"
                 }`}
               >
                 {category}
@@ -85,14 +85,14 @@ export default function ServicesClientPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 lg:py-24 bg-[#F5F3EE]">
+      <section className="py-16 lg:py-24 bg-[#F5F3EE] dark:bg-gray-800 transition-colors">
         <div className="container mx-auto px-4 lg:px-8">
           {filteredServices.length > 0 ? (
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredServices.map((service) => (
                 <Card
                   key={service.id}
-                  className="group hover:shadow-lg transition-all duration-300 border-[#A8D5BA]/30 bg-white"
+                  className="group hover:shadow-lg transition-all duration-300 border-[#A8D5BA]/30 dark:border-gray-700 bg-white dark:bg-gray-900"
                 >
                   <CardContent className="p-0">
                     <div className="relative aspect-video overflow-hidden rounded-t-lg bg-[#CFEAFB]/20">
@@ -104,19 +104,19 @@ export default function ServicesClientPage() {
                       />
                     </div>
                     <div className="p-6">
-                      <div className="mb-2 inline-block rounded-full bg-[#A8D5BA]/20 px-3 py-1 text-xs font-medium text-[#2A7F7F]">
+                      <div className="mb-2 inline-block rounded-full bg-[#A8D5BA]/20 dark:bg-[#8CC9A8]/20 px-3 py-1 text-xs font-medium text-[#2A7F7F] dark:text-[#8CC9A8]">
                         {service.category}
                       </div>
-                      <h3 className="mb-2 text-xl font-heading font-semibold text-[#2D5F4F]">{service.title}</h3>
-                      <p className="mb-4 text-sm text-[#2C3E50] leading-relaxed">{service.excerpt}</p>
+                      <h3 className="mb-2 text-xl font-heading font-semibold text-[#2D5F4F] dark:text-[#8CC9A8]">{service.title}</h3>
+                      <p className="mb-4 text-sm text-[#2C3E50] dark:text-gray-300 leading-relaxed">{service.excerpt}</p>
                       <div className="flex items-center justify-between">
-                        <div className="text-sm text-[#2C3E50]/70">
+                        <div className="text-sm text-[#2C3E50]/70 dark:text-gray-400">
                           <span className="font-medium">{service.duration}</span>
                           <span className="mx-2">•</span>
                           <span>{service.price}</span>
                         </div>
                       </div>
-                      <Button variant="link" asChild className="mt-4 px-0 text-[#2A7F7F] hover:text-[#2D5F4F]">
+                      <Button variant="link" asChild className="mt-4 px-0 text-[#2A7F7F] dark:text-[#8CC9A8] hover:text-[#2D5F4F] dark:hover:text-[#A5D4F3]">
                         <Link href={`/services/${service.slug}`}>
                           Learn More <ArrowRight className="ml-1 h-4 w-4" />
                         </Link>
@@ -128,19 +128,19 @@ export default function ServicesClientPage() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-[#2C3E50]">No services found matching your criteria.</p>
+              <p className="text-[#2C3E50] dark:text-gray-300">No services found matching your criteria.</p>
             </div>
           )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="container mx-auto px-4 text-center lg:px-8">
-          <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F]">
+          <h2 className="mb-4 text-h2 font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">
             Not Sure Which Service Is Right for You?
           </h2>
-          <p className="mx-auto mb-8 max-w-2xl text-[#2C3E50] leading-relaxed">
+          <p className="mx-auto mb-8 max-w-2xl text-[#2C3E50] dark:text-gray-300 leading-relaxed">
             Book a free consultation call and we'll help you find the perfect service for your needs.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">

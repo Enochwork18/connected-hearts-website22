@@ -11,6 +11,7 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
+const THEME_KEY = "ibasepo_theme"
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light")
@@ -19,18 +20,25 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     setMounted(true)
     // Check for saved preference or system preference
-    const savedTheme = localStorage.getItem("theme") as Theme | null
+    const savedTheme = localStorage.getItem(THEME_KEY) as Theme | null
     const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
     const initialTheme = savedTheme || systemTheme
 
     setThemeState(initialTheme)
-    document.documentElement.classList.toggle("dark", initialTheme === "dark")
+    applyTheme(initialTheme)
   }, [])
+
+  const applyTheme = (newTheme: Theme) => {
+    // Apply dark class for Tailwind
+    document.documentElement.classList.toggle("dark", newTheme === "dark")
+    // Also set data-theme attribute for CSS variable-based theming
+    document.documentElement.setAttribute("data-theme", newTheme)
+  }
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme)
-    localStorage.setItem("theme", newTheme)
-    document.documentElement.classList.toggle("dark", newTheme === "dark")
+    localStorage.setItem(THEME_KEY, newTheme)
+    applyTheme(newTheme)
   }
 
   const toggleTheme = () => {

@@ -141,24 +141,24 @@ export default function BookingPage() {
             <div
               className={`flex h-10 w-10 items-center justify-center rounded-full border-2 ${
                 currentStep >= step
-                  ? "border-[#2A7F7F] bg-[#2A7F7F] text-white"
-                  : "border-gray-300 bg-white text-gray-400"
+                  ? "border-[#2A7F7F] bg-[#2A7F7F] text-white dark:border-teal-500 dark:bg-teal-600"
+                  : "border-gray-300 bg-white text-gray-400 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-400"
               }`}
             >
               {currentStep > step ? <CheckCircle2 className="h-5 w-5" /> : step}
             </div>
-            {step < 3 && <div className={`h-1 w-16 md:w-24 ${currentStep > step ? "bg-[#2A7F7F]" : "bg-gray-300"}`} />}
+            {step < 3 && <div className={`h-1 w-16 md:w-24 ${currentStep > step ? "bg-[#2A7F7F] dark:bg-teal-600" : "bg-gray-300 dark:bg-slate-600"}`} />}
           </div>
         ))}
       </div>
       <div className="mt-4 flex justify-center gap-8 md:gap-16">
-        <span className={`text-sm ${currentStep >= 1 ? "text-[#2A7F7F] font-semibold" : "text-gray-400"}`}>
+        <span className={`text-sm ${currentStep >= 1 ? "text-[#2A7F7F] dark:text-teal-400 font-semibold" : "text-gray-400 dark:text-slate-500"}`}>
           Select Service
         </span>
-        <span className={`text-sm ${currentStep >= 2 ? "text-[#2A7F7F] font-semibold" : "text-gray-400"}`}>
+        <span className={`text-sm ${currentStep >= 2 ? "text-[#2A7F7F] dark:text-teal-400 font-semibold" : "text-gray-400 dark:text-slate-500"}`}>
           Your Details
         </span>
-        <span className={`text-sm ${currentStep >= 3 ? "text-[#2A7F7F] font-semibold" : "text-gray-400"}`}>
+        <span className={`text-sm ${currentStep >= 3 ? "text-[#2A7F7F] dark:text-teal-400 font-semibold" : "text-gray-400 dark:text-slate-500"}`}>
           Payment
         </span>
       </div>
@@ -168,15 +168,15 @@ export default function BookingPage() {
   const renderStep1 = () => (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-heading font-bold text-[#2D5F4F] mb-4">Select a Service</h2>
+        <h2 className="text-2xl font-heading font-bold text-[#2D5F4F] dark:text-white mb-4">Select a Service</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {services
             .filter((s) => s.featured)
             .map((service) => (
               <Card
                 key={service.id}
-                className={`cursor-pointer transition-all hover-lift ${
-                  selectedService === service.id.toString() ? "ring-2 ring-[#2A7F7F]" : ""
+                className={`cursor-pointer transition-all hover-lift dark:bg-slate-800 dark:border-slate-700 ${
+                  selectedService === service.id.toString() ? "ring-2 ring-[#2A7F7F] dark:ring-teal-500" : ""
                 }`}
                 onClick={() => setSelectedService(service.id.toString())}
               >
@@ -194,8 +194,8 @@ export default function BookingPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <Badge variant="outline">{service.duration}</Badge>
-                    <span className="font-semibold text-[#2A7F7F]">£75</span>
+                    <Badge variant="outline" className="dark:border-slate-600">{service.duration}</Badge>
+                    <span className="font-semibold text-[#2A7F7F] dark:text-teal-400">£75</span>
                   </div>
                 </CardContent>
               </Card>
@@ -235,8 +235,8 @@ export default function BookingPage() {
         </div>
       </div>
 
-      <div className="bg-[#CFEAFB]/20 p-4 rounded-lg">
-        <p className="text-sm text-[#2C3E50]">
+      <div className="bg-[#CFEAFB]/20 dark:bg-teal-900/20 p-4 rounded-lg">
+        <p className="text-sm text-[#2C3E50] dark:text-slate-300">
           <strong>Note:</strong> Sessions are conducted via video call (Zoom) or phone. You'll receive a confirmation
           email with the meeting link after booking.
         </p>
@@ -246,7 +246,7 @@ export default function BookingPage() {
 
   const renderStep2 = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-heading font-bold text-[#2D5F4F] mb-4">Your Information</h2>
+      <h2 className="text-2xl font-heading font-bold text-[#2D5F4F] dark:text-white mb-4">Your Information</h2>
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
@@ -333,9 +333,9 @@ export default function BookingPage() {
         </label>
       </div>
 
-      <div className="bg-[#F5F3EE] p-4 rounded-lg">
-        <h3 className="font-semibold text-[#2D5F4F] mb-2">Booking Summary</h3>
-        <div className="space-y-2 text-sm">
+      <div className="bg-[#F5F3EE] dark:bg-slate-800 p-4 rounded-lg">
+        <h3 className="font-semibold text-[#2D5F4F] dark:text-white mb-2">Booking Summary</h3>
+        <div className="space-y-2 text-sm dark:text-slate-300">
           <div className="flex justify-between">
             <span>Service:</span>
             <span className="font-medium">{selectedServiceData?.title}</span>
@@ -348,9 +348,9 @@ export default function BookingPage() {
             <span>Time:</span>
             <span className="font-medium">{selectedTime}</span>
           </div>
-          <div className="flex justify-between border-t pt-2 mt-2">
+          <div className="flex justify-between border-t dark:border-slate-600 pt-2 mt-2">
             <span className="font-semibold">Total:</span>
-            <span className="font-bold text-[#2A7F7F]">£75.00</span>
+            <span className="font-bold text-[#2A7F7F] dark:text-teal-400">£75.00</span>
           </div>
         </div>
       </div>
@@ -359,10 +359,10 @@ export default function BookingPage() {
 
   const renderStep3 = () => (
     <div className="space-y-6">
-      <h2 className="text-2xl font-heading font-bold text-[#2D5F4F] mb-4">Payment Method</h2>
+      <h2 className="text-2xl font-heading font-bold text-[#2D5F4F] dark:text-white mb-4">Payment Method</h2>
 
       <RadioGroup value={paymentMethod} onValueChange={(value) => setPaymentMethod(value as typeof paymentMethod)}>
-        <Card className={`cursor-pointer ${paymentMethod === "paystack" ? "ring-2 ring-[#2A7F7F]" : ""}`}>
+        <Card className={`cursor-pointer dark:bg-slate-800 dark:border-slate-700 ${paymentMethod === "paystack" ? "ring-2 ring-[#2A7F7F] dark:ring-teal-500" : ""}`}>
           <CardHeader className="flex flex-row items-center space-x-4 pb-4">
             <RadioGroupItem value="paystack" id="paystack" />
             <div className="flex-1">
@@ -379,7 +379,7 @@ export default function BookingPage() {
           </CardHeader>
         </Card>
 
-        <Card className={`cursor-pointer ${paymentMethod === "flutterwave" ? "ring-2 ring-[#2A7F7F]" : ""}`}>
+        <Card className={`cursor-pointer dark:bg-slate-800 dark:border-slate-700 ${paymentMethod === "flutterwave" ? "ring-2 ring-[#2A7F7F] dark:ring-teal-500" : ""}`}>
           <CardHeader className="flex flex-row items-center space-x-4 pb-4">
             <RadioGroupItem value="flutterwave" id="flutterwave" />
             <div className="flex-1">
@@ -397,27 +397,27 @@ export default function BookingPage() {
         </Card>
       </RadioGroup>
 
-      <div className="bg-[#F5F3EE] p-6 rounded-lg">
-        <h3 className="font-semibold text-[#2D5F4F] mb-4">Order Summary</h3>
-        <div className="space-y-3 text-sm">
+      <div className="bg-[#F5F3EE] dark:bg-slate-800 p-6 rounded-lg">
+        <h3 className="font-semibold text-[#2D5F4F] dark:text-white mb-4">Order Summary</h3>
+        <div className="space-y-3 text-sm dark:text-slate-300">
           <div className="flex justify-between">
             <span>{selectedServiceData?.title}</span>
             <span>£75.00</span>
           </div>
-          <div className="flex justify-between text-xs text-muted-foreground">
+          <div className="flex justify-between text-xs text-muted-foreground dark:text-slate-400">
             <span>
               {new Date(selectedDate).toLocaleDateString()} at {selectedTime}
             </span>
           </div>
-          <div className="border-t pt-3 flex justify-between font-bold text-lg">
+          <div className="border-t dark:border-slate-600 pt-3 flex justify-between font-bold text-lg">
             <span>Total</span>
-            <span className="text-[#2A7F7F]">£75.00</span>
+            <span className="text-[#2A7F7F] dark:text-teal-400">£75.00</span>
           </div>
         </div>
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
-        <p className="text-sm text-blue-900">
+      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4 rounded-lg">
+        <p className="text-sm text-blue-900 dark:text-blue-300">
           <strong>Secure Payment:</strong> Your payment information is encrypted and secure. You'll be redirected to{" "}
           {paymentMethod === "paystack" ? "Paystack" : "Flutterwave"} to complete your payment.
         </p>
@@ -434,15 +434,15 @@ export default function BookingPage() {
       </div>
 
       <div>
-        <h2 className="text-3xl font-heading font-bold text-[#2D5F4F] mb-2">Booking Confirmed!</h2>
-        <p className="text-muted-foreground">Your session has been successfully booked</p>
+        <h2 className="text-3xl font-heading font-bold text-[#2D5F4F] dark:text-white mb-2">Booking Confirmed!</h2>
+        <p className="text-muted-foreground dark:text-slate-300">Your session has been successfully booked</p>
       </div>
 
       {completedBooking && (
-        <Card className="text-left">
+        <Card className="text-left dark:bg-slate-800 dark:border-slate-700">
           <CardHeader>
-            <CardTitle>Booking Details</CardTitle>
-            <CardDescription>Booking ID: {completedBooking.id}</CardDescription>
+            <CardTitle className="dark:text-white">Booking Details</CardTitle>
+            <CardDescription className="dark:text-slate-400">Booking ID: {completedBooking.id}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-3">
@@ -487,9 +487,9 @@ export default function BookingPage() {
         </Card>
       )}
 
-      <div className="bg-[#CFEAFB]/20 p-4 rounded-lg text-sm text-left">
-        <p className="font-semibold text-[#2D5F4F] mb-2">What's Next?</p>
-        <ul className="space-y-1 text-muted-foreground">
+      <div className="bg-[#CFEAFB]/20 dark:bg-teal-900/20 p-4 rounded-lg text-sm text-left">
+        <p className="font-semibold text-[#2D5F4F] dark:text-white mb-2">What's Next?</p>
+        <ul className="space-y-1 text-muted-foreground dark:text-slate-300">
           <li>• You'll receive a confirmation email with the meeting link</li>
           <li>• A reminder will be sent 24 hours before your session</li>
           <li>• If you need to reschedule, please contact us at least 24 hours in advance</li>
@@ -499,13 +499,13 @@ export default function BookingPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#F5F3EE] to-white py-12">
+    <div className="min-h-screen bg-gradient-to-br from-[#F5F3EE] to-white dark:from-slate-900 dark:to-slate-800 py-12">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-3xl">
           {currentStep < 4 && (
             <div className="mb-8 text-center">
-              <h1 className="text-3xl font-heading font-bold text-[#2D5F4F] mb-2">Book Your Session</h1>
-              <p className="text-muted-foreground">Complete the steps below to schedule your consultation</p>
+              <h1 className="text-3xl font-heading font-bold text-[#2D5F4F] dark:text-white mb-2">Book Your Session</h1>
+              <p className="text-muted-foreground dark:text-slate-300">Complete the steps below to schedule your consultation</p>
             </div>
           )}
 
@@ -517,7 +517,7 @@ export default function BookingPage() {
             </Alert>
           )}
 
-          <Card>
+          <Card className="dark:bg-slate-800 dark:border-slate-700">
             <CardContent className="pt-6">
               {currentStep === 1 && renderStep1()}
               {currentStep === 2 && renderStep2()}

@@ -55,7 +55,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Posts */}
-      <section className="py-16 lg:py-24">
+      <section className="py-16 lg:py-24 bg-background dark:bg-slate-900">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Main Content */}
@@ -110,8 +110,8 @@ export default function BlogPage() {
                             </div>
                             <span>{post.readTime} read</span>
                           </div>
-                          <h2 className="mb-3 text-2xl font-bold text-forest">
-                            <Link href={`/blog/${post.slug}`} className="hover:text-teal">
+                          <h2 className="mb-3 text-2xl font-bold text-forest dark:text-white">
+                            <Link href={`/blog/${post.slug}`} className="hover:text-teal dark:hover:text-teal-400">
                               {post.title}
                             </Link>
                           </h2>
@@ -134,9 +134,9 @@ export default function BlogPage() {
             {/* Sidebar */}
             <div className="space-y-8">
               {/* Categories */}
-              <Card>
+              <Card className="dark:bg-slate-800 dark:border-slate-700">
                 <CardContent className="pt-6">
-                  <h3 className="mb-4 text-lg font-semibold text-forest">Categories</h3>
+                  <h3 className="mb-4 text-lg font-semibold text-forest dark:text-white">Categories</h3>
                   <ul className="space-y-2">
                     <li>
                       <button
@@ -165,13 +165,13 @@ export default function BlogPage() {
               </Card>
 
               {/* Newsletter */}
-              <Card className="bg-primary text-white">
+              <Card className="bg-primary dark:bg-teal-700 text-white dark:border-teal-600">
                 <CardContent className="pt-6">
                   <h3 className="mb-3 text-lg font-semibold">Subscribe to Our Newsletter</h3>
                   <p className="mb-4 text-sm text-white/90">
                     Get the latest insights and updates delivered to your inbox.
                   </p>
-                  <Button variant="secondary" asChild className="w-full">
+                  <Button variant="secondary" asChild className="w-full dark:bg-white dark:text-teal-700 dark:hover:bg-slate-100">
                     <Link href="/contact">Subscribe Now</Link>
                   </Button>
                 </CardContent>

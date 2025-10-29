@@ -46,21 +46,21 @@ export default function AdminDashboard() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-heading font-bold text-[#2D5F4F]">Dashboard</h1>
-        <p className="text-[#2C3E50] mt-2">Welcome to your admin panel</p>
+        <h1 className="text-3xl font-heading font-bold text-[#2D5F4F] dark:text-[#8CC9A8] transition-colors">Dashboard</h1>
+        <p className="text-[#2C3E50] dark:text-[#E5E5E5] mt-2 transition-colors">Welcome to your admin panel</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {stats.map((stat) => {
           const Icon = stat.icon
           return (
-            <Card key={stat.title} className="border-[#A8D5BA]/30">
+            <Card key={stat.title} className="border-[#A8D5BA]/30 dark:border-[#303030]">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium text-[#2C3E50]">{stat.title}</CardTitle>
-                <Icon className={cn("h-5 w-5", stat.color)} />
+                <CardTitle className="text-sm font-medium text-[#2C3E50] dark:text-[#E5E5E5]">{stat.title}</CardTitle>
+                <Icon className={cn("h-5 w-5 dark:text-[#8CC9A8]", stat.color)} />
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-[#2D5F4F]">{stat.value}</div>
+                <div className="text-3xl font-bold text-[#2D5F4F] dark:text-[#8CC9A8]">{stat.value}</div>
               </CardContent>
             </Card>
           )
@@ -68,12 +68,12 @@ export default function AdminDashboard() {
       </div>
 
       <div className="mt-8">
-        <Card className="border-[#A8D5BA]/30">
+        <Card className="border-[#A8D5BA]/30 dark:border-[#303030]">
           <CardHeader>
-            <CardTitle className="text-[#2D5F4F]">Quick Actions</CardTitle>
+            <CardTitle className="text-[#2D5F4F] dark:text-[#8CC9A8]">Quick Actions</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-[#2C3E50]">
+            <p className="text-[#2C3E50] dark:text-[#E5E5E5]">
               This is a UI-only admin panel. Backend functionality will be implemented in the future.
             </p>
           </CardContent>
