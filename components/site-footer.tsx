@@ -1,5 +1,8 @@
 import Link from "next/link"
+<<<<<<< HEAD
 import Image from "next/image"
+=======
+>>>>>>> 999383ddab5c78599615d90603174c71f02ea822
 import { Facebook, Instagram, Mail, Phone, MapPin } from "@/components/icons"
 import { NewsletterForm } from "@/components/newsletter-form"
 
@@ -10,6 +13,7 @@ export function SiteFooter() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
+<<<<<<< HEAD
             <div className="mb-4 flex items-center gap-3">
               {/* LOGO PLACEHOLDER */}
               <Image
@@ -23,6 +27,11 @@ export function SiteFooter() {
                 <span className="text-xl font-heading font-bold text-[#2D5F4F] dark:text-[#A8D5BA]">Ìbáṣepọ̀</span>
                 <span className="text-sm text-[#2A7F7F]">Connected Hearts</span>
               </div>
+=======
+            <div className="mb-4 flex flex-col">
+              <span className="text-xl font-heading font-bold text-[#2D5F4F]">Ìbáṣepọ̀</span>
+              <span className="text-sm text-[#2A7F7F]">Connected Hearts</span>
+>>>>>>> 999383ddab5c78599615d90603174c71f02ea822
             </div>
             <p className="text-sm text-[#2C3E50] leading-relaxed">
               Guiding families toward peace, purpose, and legacy through faith-based coaching.
