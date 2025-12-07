@@ -1,10 +1,7 @@
 "use client"
 
 import Link from "next/link"
-<<<<<<< HEAD
 import Image from "next/image"
-=======
->>>>>>> 999383ddab5c78599615d90603174c71f02ea822
 import { Button } from "@/components/ui/button"
 import { Menu } from "@/components/icons"
 import { ThemeToggleAdvanced } from "@/components/theme-toggle-advanced"
@@ -17,7 +14,6 @@ export function AdminHeader() {
           <Button variant="ghost" size="icon" className="lg:hidden">
             <Menu className="h-5 w-5" />
           </Button>
-<<<<<<< HEAD
           <Link href="/admin/dashboard" className="flex items-center gap-2">
             {/* LOGO PLACEHOLDER */}
             <Image
@@ -30,10 +26,6 @@ export function AdminHeader() {
             <span className="text-xl font-heading font-bold text-foreground">
               Connected Hearts Admin
             </span>
-=======
-          <Link href="/admin/dashboard" className="text-xl font-heading font-bold text-foreground">
-            Connected Hearts Admin
->>>>>>> 999383ddab5c78599615d90603174c71f02ea822
           </Link>
         </div>
         <div className="flex items-center gap-4">
