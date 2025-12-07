@@ -1,10 +1,7 @@
 "use client"
 
 import Link from "next/link"
-<<<<<<< HEAD
 import Image from "next/image"
-=======
->>>>>>> 999383ddab5c78599615d90603174c71f02ea822
 import { useState } from "react"
 import { usePathname } from "next/navigation"
 import { Menu, X, User, LogOut, Shield } from "@/components/icons"
@@ -39,7 +36,6 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-white/95 dark:bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-900/80 shadow-sm transition-colors">
       <nav className="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
-<<<<<<< HEAD
           {/* LOGO PLACEHOLDER */}
           <Image
             src="/placeholder-logo.svg"
@@ -48,8 +44,6 @@ export function SiteHeader() {
             height={40}
             className="object-contain"
           />
-=======
->>>>>>> 999383ddab5c78599615d90603174c71f02ea822
           <div className="flex flex-col">
             <span className="text-xl font-heading font-bold text-[#2D5F4F] dark:text-[#A8D5BA]">Ìbáṣepọ̀</span>
             <span className="text-sm text-[#2A7F7F] dark:text-[#2A7F7F]">Connected Hearts</span>
